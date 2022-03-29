@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useRef} from 'react'
 
-function App() {
+export default function App() {
+  
+  const statelessObject=useRef(0)
+  const domElement=useRef('')
+
+  function getFieldData(){
+      //I don't have e.target.value here, but still i can access dom elemnt such as text field
+      console.log(domElement.current.value);
+      domElement.current.focus();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h3>Stateless Value -{statelessObject.current} Will not cause re-render when updated</h3>
+      <button onClick={()=>{statelessObject.current+=1}}>Increase</button>
+      <br />
+      <input type="text" ref={domElement}></input>
+      <br />
+      <button onClick={getFieldData}>Get Field Data</button>
     </div>
-  );
+  )
 }
-
-export default App;
