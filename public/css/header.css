@@ -1,0 +1,21 @@
+
+.container{
+    width: 100%;
+    background-color: grey;
+    padding: 10px;
+}
+
+.list-item{
+    list-style: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.anchor:hover{
+    color: black;
+}
+.anchor{
+    text-decoration: none;
+    font-size: large;
+    color: greenyellow;
+}

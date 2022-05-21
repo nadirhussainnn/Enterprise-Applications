@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/displayTodos.css" />
+    <title>Document</title>
+</head>
+<body>
+    
+    <%- include('layout/header')  %> 
+    
+    <div class="display-container">
+        <h1>Display All Todos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task #</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0;i<data.length;i++){%>
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%= data[i].description %></td>
+                        <td>
+                            <img src=<%= '/images/'+data[i].image %> alt="Could not load" width="100px"></td>
+                        <td>
+                            <a href=<%= "/api/deleteItem?id="+data[i]._id %> class="del-link">Delete</a>
+                            <a href=<%= "/api/updateItem?id="+data[i]._id %> class="update-link">Update</a>
+                        </td>
+                    </tr>
+                    <% } %> 
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.form-container{
+    margin-top: 10%;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10%;
+    padding: 30px;
+
+}
+
+
+.form-field{
+    padding: 10px;
+}
+
+.btn{
+    background-color: grey;
+    color: greenyellow;
+}

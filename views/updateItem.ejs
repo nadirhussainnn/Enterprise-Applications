@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('layout/header')  %> 
+    <div style="margin: auto; text-align:center; width:50%; margin-top: 100px;">
+        <form method="post" enctype="multipart/form-data" action=<%= "/api/updateItem?id="+data._id %>  >
+            <div>
+                <input type="text" name="description" value=<%=data.description%> /> 
+            </div>
+            <div>
+                <img src=<%='/images/'+data.image  %> width="150px" /> 
+            </div>
+            <div>
+                <input type="file" name="image" placeholder="Select new Image"/> 
+            </div>
+            <div>
+                <button type="submit">Update</button> 
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
