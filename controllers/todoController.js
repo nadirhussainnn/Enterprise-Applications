@@ -2,7 +2,7 @@ const Todo=require('../models/todoModel')
 const path=require('path')
 
 const displayHomePage=async(req, res)=>{
-    res.render('index', {name:'Kinza'})
+    res.render('index', {name:'Nadir'})
 }
 
 const displayAddTodoPage=async(req, res)=>{
@@ -61,7 +61,7 @@ const updateItemById=async(req, res)=>{
     const {description}=req.body
     const {image}=req.files
     const {id}=req.query
-    
+
     image.mv(path.resolve(__dirname,'../public/images', image.name),(error)=>{
         if(!error){
 
