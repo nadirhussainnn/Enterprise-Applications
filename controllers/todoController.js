@@ -1,5 +1,6 @@
 const Todo=require('../models/todoModel')
 const path=require('path')
+const fs=require('fs')
 
 const displayHomePage=async(req, res)=>{
     res.render('index', {name:'Nadir'})
@@ -28,9 +29,6 @@ const addTodoItem=async(req, res)=>{
             console.log(error)
         }
     })
-    
-
-    //
 }
 
 const viewAllTodos=async(req, res)=>{
@@ -65,16 +63,23 @@ const updateItemById=async(req, res)=>{
     image.mv(path.resolve(__dirname,'../public/images', image.name),(error)=>{
         if(!error){
 
-            Todo.findByIdAndUpdate(id,{description:description,image:image.name},(error, doc)=>{
-                
+            Todo.findById(id,(error,doc)=>{
+                console.log(doc)
+
                 if(!error){
-                    res.redirect('/api/viewAllTodos')
-                }
-                else{
-                    res.redirect('/api/updateItem')
+                    const oldImage=path.resolve(__dirname,'../public/images',doc.image)
+                    fs.unlinkSync(oldImage)
+    
+                    Todo.findByIdAndUpdate(id,{description:description,image:image.name},(error, doc)=>{
+                        if(!error){
+                            res.redirect('/api/viewAllTodos')
+                        }
+                        else{
+                            res.redirect('/api/updateItem')
+                        }
+                    })
                 }
             })
-
         }
         else{
             res.redirect('/api/updateItem')

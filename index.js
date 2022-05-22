@@ -5,7 +5,6 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const path = require("path");
 const fileUpload = require("express-fileupload");
-
 const todoRoute = require("./routes/TodoRoutes");
 
 dotenv.config();
