@@ -1,0 +1,11 @@
+.update-container{
+    margin: auto;
+    margin-top: 100px;
+    width: 50%;
+    background-color: whitesmoke;
+    padding: 30px;
+    text-align: center;
+}
+.update-field{
+    margin-top: 10px;
+}

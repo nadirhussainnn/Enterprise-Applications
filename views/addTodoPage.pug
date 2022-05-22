@@ -1,0 +1,17 @@
+doctype html 
+html 
+    head 
+        title Add Todo page
+        style 
+            include ../public/css/addTodo.css
+    body 
+        include layout/header.pug
+
+        div.form-container
+            form(action='/api/addTodoItem', method='POST', enctype='multipart/form-data') 
+                div.form-field
+                    input(type='text', placeholder='Enter Task description', name='description')
+                div.form-field
+                    input(type='file', placeholder='Select Image', name='image')
+                div.form-field
+                    button(type='submit').btn Add Item

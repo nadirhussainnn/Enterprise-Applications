@@ -1,0 +1,23 @@
+doctype html 
+html 
+    head 
+    title Update Item 
+    style 
+        include ../public/css/updateTodo.css
+    body 
+        include layout/header.pug
+
+        div.update-container
+            -let id=data._id
+            -let description=data.description
+            -let img=data.image
+
+            form(method='POST', action='/api/updateItem?id='+id, enctype='multipart/form-data') 
+                div.update-field 
+                    input(type='text', value=description, name='description')
+                div.update-field 
+                    img(src='/images/'+img, alt='could not load image', style='width:100px')
+                div.update-field 
+                    input(type='file', value=img, name='image', placeholder='Select image')
+                div.update-field     
+                    button(type='submit') Update
